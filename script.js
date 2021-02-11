@@ -1,17 +1,82 @@
+//find all element with "tab" class and have it
+// const tabs = document.querySelectorAll("#Tabs button > span")
+const tabs = [...document.getElementsByClassName("Tab")]
 
-//find all element with "tab" class and have it as a NodeList
+
+// console.log(tabs);
 
 
 //find all element with "Page" class and have it as a NodeList
+const pages = document.querySelectorAll("#content > div.Page")
+// console.log(pages);
 
-//create a function named render
-//taking 1 argument "event"
-  //in render function
-// in render find the element of the event
-// find the value of the custom attribute "data-section" of the previous element
-// add the class hidden to all "tab" elements 
-// find the div with the id of the data-section value previously found
-// remove the class hidden to all "tab" elements 
+function render(event) {
+  const section = event.target.dataset.section;
+  console.log(section);
+  pages.forEach(page=> page.classList.add("hidden"))
 
-// add the event listner to all the the tabs
-// add the event handler "render" function
+  document.getElementById(section).classList.remove("hidden")
+}
+console.log(tabs);
+tabs.forEach(element => {
+  element.onclick = event => render(event)
+});
+
+class Rectangle {
+  constructor(hauteur,largeur) {
+    this.hauteur = hauteur;
+    this.largeur = largeur;
+  }
+
+  grandir(param,clbk){
+    this.hauteur += param
+    this.largeur += param
+    if (clbk) {
+      clbk()
+    }
+  }
+}
+
+const rect = new Rectangle(10,10)
+
+function sayBigger(){
+  console.log("je suis grand");
+}
+
+rect.grandir(10,sayBigger)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const tabs = document.querySelectorAll(".Tab");
+// console.log(tabs);
+
+// const pages = document.querySelectorAll(".Page");
+
+
+
+// function render(event) {
+//   const section = event.target.dataset.section;
+//   pages.forEach((tab) => tab.classList.add("hidden"));
+//   document.getElementById(section).classList.remove("hidden");
+// }
+
+// tabs.forEach((tab) => (tab.onclick = render));
