@@ -1,10 +1,12 @@
+
 //find all element with "tab" class and have it as a NodeList
+
 
 //find all element with "Page" class and have it as a NodeList
 
 //create a function named render
 //taking 1 argument "event"
-    //in render function
+  //in render function
 // in render find the element of the event
 // find the value of the custom attribute "data-section" of the previous element
 // add the class hidden to all "tab" elements 
